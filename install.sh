@@ -38,7 +38,6 @@ fi
 if [[ ! -f "$CONFIG_FILE" ]]; then
     log_warn "'$CONFIG_FILE' 파일이 없습니다. 설정 예시 파일을 생성합니다."
     cat > "$CONFIG_FILE" << EOF
-    chmod 777 $CONFIG_FILE
 # --- 웹 서버 설정 변수 ---
 DOMAIN="your-domain.duckdns.org"
 EMAIL="your-email@example.com"
@@ -46,6 +45,8 @@ APP_PORT=8080
 DUCKDNS_TOKEN="your-duckdns-token"
 EOF
     log_info "'$CONFIG_FILE' 파일이 생성되었습니다. 파일에 정보를 정확히 입력 후 다시 실행해 주십시오."
+    chmod 777 $CONFIG_FILE
+
     exit 0
 fi
 source "$CONFIG_FILE"
